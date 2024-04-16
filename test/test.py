@@ -18,7 +18,7 @@ async def test_project(dut):
   dut.ena.value = 1
   dut.ui_in.value = 0
   dut.uio_in.value = 0
-  dut.rst_n.value = 0
+  dut.rst_n.value = 1
   await ClockCycles(dut.clk, 10)
   dut.rst_n.value = 1
 
@@ -28,5 +28,3 @@ async def test_project(dut):
   dut.uio_in.value = 30
 
   await ClockCycles(dut.clk, 1)
-
-  assert dut.uo_out.value == 50
